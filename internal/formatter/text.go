@@ -7,6 +7,9 @@ import (
 	"github.com/nagypeterjob/ecr-eventbridge-connector/pkg/eventbridge"
 )
 
+// BasicFormatter formats plaintext
+type BasicFormatter struct{}
+
 type values struct {
 	Name               string
 	CountCritical      *int
@@ -17,8 +20,6 @@ type values struct {
 	CountUndefined     *int
 	Link               string
 }
-
-type BasicFormatter struct{}
 
 const (
 	titleTmpl = `Vulnerabilities found in {{ .Name }}:{{printf "%s" "\n"}}`
@@ -46,6 +47,7 @@ func execTmpl(data interface{}, raw string) (bytes.Buffer, error) {
 	return buffer, nil
 }
 
+// Format receives an evnet and returns plaintext format encapsulated in a Message
 func (bf BasicFormatter) Format(event eventbridge.ScanEvent) (*Message, error) {
 
 	data := values{

@@ -40,6 +40,7 @@ func (sev *Matrix) CalculateScore() int {
 	return score
 }
 
+// HitSeverityThreshold calculates vulnerability level and check whether it hits the provided threshold
 func HitSeverityThreshold(event eventbridge.ScanEvent, minimumSeverity string) bool {
 	m := Matrix{Count: event.Detail.FindingSeverityCounts}
 	return m.CalculateScore() >= SeverityTable[minimumSeverity]

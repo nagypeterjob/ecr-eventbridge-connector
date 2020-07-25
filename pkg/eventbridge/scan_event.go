@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// ScanEvent maps to the payload received from EventBrige
 type ScanEvent struct {
 	Version      string     `json:"version"`
 	ID           string     `json:"id"`
@@ -16,6 +17,7 @@ type ScanEvent struct {
 	Detail       ScanDetail `json:"detail"`
 }
 
+// ScanDetail .
 type ScanDetail struct {
 	ScanStatus            string          `json:"scan-status"`
 	RepositoryName        string          `json:"repository-name"`

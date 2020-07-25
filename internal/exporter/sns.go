@@ -27,6 +27,7 @@ func (s SNSExporter) Name() string {
 	return s.name
 }
 
+// Send publishes report to an arbitrary SNS topic in json format
 func (s SNSExporter) Send(msg *formatter.Message) error {
 
 	input := sns.PublishInput{

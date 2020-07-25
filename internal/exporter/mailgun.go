@@ -33,7 +33,7 @@ func (m MailgunExporter) Name() string {
 	return m.name
 }
 
-// Format clousure formats scan results and returns a function that sends report on invocation
+// Send sends report via Mailgun
 func (m MailgunExporter) Send(msg *formatter.Message) error {
 
 	mail := m.client.NewMessage(

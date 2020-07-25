@@ -9,7 +9,8 @@ import (
 	"github.com/nagypeterjob/ecr-eventbridge-connector/pkg/eventbridge"
 )
 
-type JsonFormatter struct {
+// JSONFormatter formats text as json
+type JSONFormatter struct {
 }
 
 type jsonData struct {
@@ -33,7 +34,8 @@ func marshal(data jsonData) ([]byte, error) {
 	return json.Marshal(data)
 }
 
-func (jf JsonFormatter) Format(event eventbridge.ScanEvent) (*Message, error) {
+// Format receives an event and returns json format encapsulated in a Message
+func (jf JSONFormatter) Format(event eventbridge.ScanEvent) (*Message, error) {
 
 	js := jsonData{
 		Title: fmt.Sprintf("Vulnerabilities found in %s:", event.Detail.RepositoryName),

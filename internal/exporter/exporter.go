@@ -6,8 +6,8 @@ import (
 
 // Exporter defines a common interface for different exporters
 type Exporter interface {
-	// Formats message types then returns function which sends formatted messages on invocation
+	// Send implements payload transmission for each exporter
 	Send(msg *formatter.Message) error
-	// Retrun exporter name
+	// Name retruns exporter name
 	Name() string
 }

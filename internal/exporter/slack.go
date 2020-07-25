@@ -29,6 +29,7 @@ func (s SlackService) Name() string {
 	return s.name
 }
 
+// Send sends report to an arbitrary Slack channel
 func (s SlackService) Send(msg *formatter.Message) error {
 	blockParts := s.BuildMessageBlock(msg)
 	channelID, timestamp, err := s.PostMessage(blockParts...)
