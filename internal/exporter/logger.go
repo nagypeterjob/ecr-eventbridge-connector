@@ -24,7 +24,7 @@ func (l LogExporter) Name() string {
 	return l.name
 }
 
-// Format clousure formats scan results and returns a function that sends report on invocation
+// Send prints message to stdout
 func (l LogExporter) Send(msg *formatter.Message) error {
 	fmt.Println(msg.Title)
 	fmt.Println(msg.Body)
